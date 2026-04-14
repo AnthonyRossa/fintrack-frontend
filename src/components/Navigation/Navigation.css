@@ -1,0 +1,16 @@
+.navigation {
+    background-color: lightgray;
+    padding: 1rem;
+}
+
+.navigation__list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.navigation__link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
