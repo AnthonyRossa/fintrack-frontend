@@ -1,3 +1,6 @@
+import React from 'react';
+import './Main.css';
+
 export default function Main() {
 const balance = 1234.56;
 const formattedBalance = balance.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
