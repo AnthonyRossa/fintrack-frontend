@@ -1,0 +1,17 @@
+.exchange-rates{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.exchange-rates__select{
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.exchange-rates__list{
+    list-style: none;
+    padding: 0;
+}
