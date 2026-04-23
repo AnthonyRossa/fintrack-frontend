@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./Entries.css";
 
-export default function Entries() {
-  const [entries, setEntries] = useState([]);
+export default function Entries({ entries, setEntries }) {
   const [formData, setFormData] = useState({
     value: "",
     date: "",
@@ -81,6 +80,7 @@ export default function Entries() {
             value={formData.value}
             onChange={handleInputChange}
             min="0"
+            step="0.01"
             required
           />
         </div>
@@ -157,7 +157,10 @@ export default function Entries() {
               <li key={entry.id} className="entries__item">
                 <div className="entries__item-info">
                   <span className="entries__item-value">
-                    R$ {entry.value.toFixed(2)}
+                    R$ {Number(entry.value).toLocaleString('pt-BR', {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
                   </span>
                   <span className="entries__item-date">
                     {new Date(entry.date).toLocaleDateString()}

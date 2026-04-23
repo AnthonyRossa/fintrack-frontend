@@ -40,6 +40,7 @@
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .entries__form-button {
@@ -77,9 +78,9 @@
 }
 
 .entries__item {
-    background-color: #f9f9f9;
+    background-color: #1d3557;
     padding: 15px;
-    border-radius: 6px;
+    border-radius: 15px;
     margin-bottom: 1rem;
 }
 
@@ -91,21 +92,21 @@
 
 .entries__item-description {
     font-size: 1.1rem;
-    color: #555;
+    color: #ccc;
 }
 
 .entries__item-date {
     font-size: 0.9rem;
-    color: #888;
+    color: #ccc;
 }
 
 .entries__item-value {
     font-weight: bold;
-    color: #28a745;
+    color: #c7f9cc;
 }
 
 .entries__item-category {
     font-style: italic;
-    color: #555;
+    color: #ccc;
 }
 

@@ -40,6 +40,7 @@
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .expenses__form-button {
@@ -78,8 +79,9 @@
 .expenses__item {
     background-color: #f1f1f1;
     padding: 15px;
-    border-radius: 6px;
+    border-radius: 15px;
     margin-bottom: 1rem;
+    background-color: #1d3557;
 }
 
 .expenses__item-info {
@@ -90,18 +92,18 @@
 
 .expenses__item-value {
     font-weight: bold;
-    color: #d9534f;
+    color: #ffb3b3;
 }
 
 .expenses__item-date {
-    color: #777;
+    color: #ccc;
 }
 
 .expenses__item-category {
     font-style: italic;
-    color: #555;
+    color: #ccc;
 }
 
 .expenses__item-description {
-    color: #333;
+    color: #ccc;
 }

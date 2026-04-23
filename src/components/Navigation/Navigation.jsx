@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 export default function Navigation() {
@@ -5,29 +6,29 @@ export default function Navigation() {
     <nav className="navigation">
       <ul className="navigation__list">
         <li className="navigation__item">
-          <a href="/main" className="navigation__link">
+          <Link to="/main" className="navigation__link">
             Início
-          </a>
+          </Link>
         </li>
         <li className="navigation__item">
-          <a href="/expenses" className="navigation__link">
+          <Link to="/expenses" className="navigation__link">
             Despesas
-          </a>
+          </Link>
         </li>
         <li className="navigation__item">
-          <a href="/entries" className="navigation__link">
+          <Link to="/entries" className="navigation__link">
             Entradas
-          </a>
+          </Link>
         </li>
         <li className="navigation__item">
-          <a href="/reports" className="navigation__link">
+          <Link to="/reports" className="navigation__link">
             Relatórios
-          </a>
+          </Link>
         </li>
         <li className="navigation__item">
-          <a href="/exchange-rates" className="navigation__link">
+          <Link to="/exchange-rates" className="navigation__link">
             Taxas de Câmbio
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

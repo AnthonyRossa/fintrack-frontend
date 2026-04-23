@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Main from "../Main/Main";
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
@@ -8,6 +9,9 @@ import Reports from "../Reports/Reports";
 import ExchangeRates from "../ExchangeRates/ExchangeRates";
 
 export default function App() {
+  const [entries, setEntries] = useState([]);
+  const [expenses, setExpenses] = useState([]);
+
   return (
     <>
       <Routes>
@@ -17,7 +21,7 @@ export default function App() {
             <div className="page">
               <Header />
               <Navigation />
-              <Main />
+              <Main entries={entries} expenses={expenses} />
             </div>
           }
         />
@@ -27,7 +31,7 @@ export default function App() {
             <div className="page">
               <Header />
               <Navigation />
-              <Expenses />
+              <Expenses expenses={expenses} setExpenses={setExpenses} />
             </div>
           }
         />
@@ -37,7 +41,7 @@ export default function App() {
             <div className="page">
               <Header />
               <Navigation />
-              <Entries />
+              <Entries entries={entries} setEntries={setEntries} />
             </div>
           }
         />
@@ -47,7 +51,7 @@ export default function App() {
             <div className="page">
               <Header />
               <Navigation />
-              <Reports />
+              <Reports entries={entries} expenses={expenses} />
             </div>
           }
         />

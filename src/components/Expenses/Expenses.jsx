@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./Expenses.css";
 
-export default function Expenses() {
-  const [expenses, setExpenses] = useState([]);
+export default function Expenses({ expenses, setExpenses }) {
   const [formData, setFormData] = useState({
     value: "",
     date: "",
@@ -83,6 +82,7 @@ export default function Expenses() {
             value={formData.value}
             onChange={handleInputChange}
             min="0"
+            step="0.01"
             required
           />
         </div>
@@ -159,7 +159,10 @@ export default function Expenses() {
               <li key={expense.id} className="expenses__item">
                 <div className="expenses__item-info">
                   <span className="expenses__item-value">
-                    R$ {expense.value.toFixed(2)}
+                    R$ {Number(expense.value).toLocaleString('pt-BR', {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
                   </span>
                   <span className="expenses__item-date">
                     {new Date(expense.date).toLocaleDateString("pt-BR")}

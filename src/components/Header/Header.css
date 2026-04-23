@@ -1,4 +1,5 @@
 .header{
-    background-color: greenyellow;
-    padding: 1rem;
+    display: flex;
+    background-color: #28a745;
+    padding: 15px 80px;
 }

@@ -1,3 +1,22 @@
-.home{
-    margin: 1rem;
+.home {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home__title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.home__balance-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.home__balance {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
 }
