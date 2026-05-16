@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "./Expenses.css";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 
-export default function Expenses({ expenses, setExpenses }) {
+export default function Expenses({ expenses, setExpenses, onAddExpense, onDeleteExpense }) {
   const [formData, setFormData] = useState({
     value: "",
     date: "",
     category: "",
     description: "",
   });
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [expenseToDelete, setExpenseToDelete] = useState(null);
 
   const categories = [
     "Alimentação",
@@ -27,7 +30,7 @@ export default function Expenses({ expenses, setExpenses }) {
     }));
   };
 
-  const addExpense = (e) => {
+  const addExpense = async (e) => {
     e.preventDefault();
 
     if (
@@ -43,15 +46,14 @@ export default function Expenses({ expenses, setExpenses }) {
       return;
     }
 
-    const newExpense = {
-      id: Date.now(),
-      value: parseFloat(formData.value),
+    const expenseData = {
+      description: formData.description,
+      amount: parseFloat(formData.value),
       date: formData.date,
       category: formData.category,
-      description: formData.description,
     };
 
-    setExpenses((prev) => [...prev, newExpense]);
+    await onAddExpense(expenseData);
 
     setFormData({
       value: "",
@@ -59,6 +61,24 @@ export default function Expenses({ expenses, setExpenses }) {
       category: "",
       description: "",
     });
+  };
+
+  const handleDeleteClick = (expenseId) => {
+    setExpenseToDelete(expenseId);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (expenseToDelete) {
+      onDeleteExpense(expenseToDelete);
+      setIsDeleteModalOpen(false);
+      setExpenseToDelete(null);
+    }
+  };
+
+  const handleCancelDelete = () => {
+    setIsDeleteModalOpen(false);
+    setExpenseToDelete(null);
   };
 
   return (
@@ -156,10 +176,10 @@ export default function Expenses({ expenses, setExpenses }) {
         ) : (
           <ul className="expenses__list-container">
             {expenses.map((expense) => (
-              <li key={expense.id} className="expenses__item">
+              <li key={expense._id || expense.id} className="expenses__item">
                 <div className="expenses__item-info">
                   <span className="expenses__item-value">
-                    R$ {Number(expense.value).toLocaleString('pt-BR', {
+                    R$ {Number(expense.amount).toLocaleString('pt-BR', {
                       minimumFractionDigits: 2,
                       maximumFractionDigits: 2,
                     })}
@@ -174,11 +194,28 @@ export default function Expenses({ expenses, setExpenses }) {
                 <p className="expenses__item-description">
                   {expense.description}
                 </p>
+                <button
+                  className="expenses__item-delete"
+                  onClick={() => handleDeleteClick(expense._id)}
+                  title="Deletar despesa"
+                >
+                  ✕ Deletar
+                </button>
               </li>
             ))}
           </ul>
         )}
       </div>
+      
+      <ConfirmationModal
+        isOpen={isDeleteModalOpen}
+        title="Deletar Despesa"
+        message="Tem certeza que deseja deletar esta despesa? Esta ação não pode ser desfeita."
+        confirmButtonText="Deletar"
+        cancelButtonText="Cancelar"
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+      />
     </div>
   );
 }

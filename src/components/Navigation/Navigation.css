@@ -1,5 +1,5 @@
 .navigation {
-    background-color: #1d3557;
+    background: linear-gradient(to left, #335587, #0f1d36);
     padding: 20px;
     font-size: 20px;
     margin-bottom: 30px;
@@ -8,14 +8,144 @@
 .navigation__list {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 30px;
+    align-items: center;
 }
 
 .navigation__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     text-decoration: none;
     color: white;
     font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: color 0.2s ease, background-color 0.2s ease;
 }
+
+.navigation__icon {
+    width: 20px;
+    height: 20px;
+}
+
 .navigation__link:hover {
-    color: #a8d0e6;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 800px) {
+  .navigation {
+    padding: 15px 15px;
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+
+  .navigation__list {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navigation__link {
+    font-size: 0.95rem;
+    padding: 7px 10px;
+    gap: 6px;
+  }
+
+  .navigation__icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navigation {
+    padding: 12px 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .navigation__list {
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .navigation__link {
+    font-size: 0.85rem;
+    padding: 6px 8px;
+    gap: 5px;
+  }
+
+  .navigation__icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation {
+    padding: 10px 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .navigation__list {
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .navigation__link {
+    font-size: 0.75rem;
+    padding: 5px 6px;
+    gap: 4px;
+  }
+
+  .navigation__icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .navigation {
+    padding: 8px 5px;
+    margin-bottom: 12px;
+  }
+
+  .navigation__list {
+    gap: 6px;
+  }
+
+  .navigation__link {
+    font-size: 0.7rem;
+    padding: 4px 5px;
+    gap: 3px;
+  }
+
+  .navigation__icon {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .navigation {
+    padding: 6px 4px;
+    margin-bottom: 10px;
+  }
+
+  .navigation__list {
+    gap: 4px;
+  }
+
+  .navigation__link {
+    font-size: 0.65rem;
+    padding: 3px 4px;
+    gap: 2px;
+  }
+
+  .navigation__icon {
+    width: 11px;
+    height: 11px;
+  }
 }

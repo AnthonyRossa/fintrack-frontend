@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "./Entries.css";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 
-export default function Entries({ entries, setEntries }) {
+export default function Entries({ entries, setEntries, onAddEntry, onDeleteEntry }) {
   const [formData, setFormData] = useState({
     value: "",
     date: "",
     category: "",
     description: "",
   });
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [entryToDelete, setEntryToDelete] = useState(null);
 
   const categories = [
     "Salário",
@@ -25,7 +28,7 @@ export default function Entries({ entries, setEntries }) {
     }));
   };
 
-  const addEntry = (e) => {
+  const addEntry = async (e) => {
     e.preventDefault();
 
     if (
@@ -41,15 +44,14 @@ export default function Entries({ entries, setEntries }) {
       return;
     }
 
-    const newEntry = {
-      id: Date.now(),
-      value: parseFloat(formData.value),
+    const entryData = {
+      description: formData.description,
+      amount: parseFloat(formData.value),
       date: formData.date,
       category: formData.category,
-      description: formData.description,
     };
 
-    setEntries((prev) => [...prev, newEntry]);
+    await onAddEntry(entryData);
 
     setFormData({
       value: "",
@@ -57,6 +59,24 @@ export default function Entries({ entries, setEntries }) {
       category: "",
       description: "",
     });
+  };
+
+  const handleDeleteClick = (entryId) => {
+    setEntryToDelete(entryId);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (entryToDelete) {
+      onDeleteEntry(entryToDelete);
+      setIsDeleteModalOpen(false);
+      setEntryToDelete(null);
+    }
+  };
+
+  const handleCancelDelete = () => {
+    setIsDeleteModalOpen(false);
+    setEntryToDelete(null);
   };
 
   return (
@@ -154,10 +174,10 @@ export default function Entries({ entries, setEntries }) {
         ) : (
           <ul className="entries__list-container">
             {entries.map((entry) => (
-              <li key={entry.id} className="entries__item">
+              <li key={entry._id || entry.id} className="entries__item">
                 <div className="entries__item-info">
                   <span className="entries__item-value">
-                    R$ {Number(entry.value).toLocaleString('pt-BR', {
+                    R$ {Number(entry.amount).toLocaleString('pt-BR', {
                       minimumFractionDigits: 2,
                       maximumFractionDigits: 2,
                     })}
@@ -170,11 +190,28 @@ export default function Entries({ entries, setEntries }) {
                   </span>
                 </div>
                 <p className="entries__item-description">{entry.description}</p>
+                <button
+                  className="entries__item-delete"
+                  onClick={() => handleDeleteClick(entry._id)}
+                  title="Deletar entrada"
+                >
+                  ✕ Deletar
+                </button>
               </li>
             ))}
           </ul>
         )}
       </div>
+      
+      <ConfirmationModal
+        isOpen={isDeleteModalOpen}
+        title="Deletar Entrada"
+        message="Tem certeza que deseja deletar esta entrada? Esta ação não pode ser desfeita."
+        confirmButtonText="Deletar"
+        cancelButtonText="Cancelar"
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+      />
     </div>
   );
 }

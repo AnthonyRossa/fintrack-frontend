@@ -1,0 +1,107 @@
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal__content {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal__title {
+  margin: 0 0 12px 0;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.modal__message {
+  margin: 0 0 24px 0;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.modal__buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.modal__button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.modal__button-cancel {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+.modal__button-cancel:hover {
+  background-color: #dee2e6;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal__button-confirm {
+  background-color: #dc3545;
+  color: white;
+}
+
+.modal__button-confirm:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+  .modal__content {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .modal__title {
+    font-size: 1.2rem;
+  }
+
+  .modal__message {
+    font-size: 0.95rem;
+  }
+
+  .modal__button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    min-width: 80px;
+  }
+}

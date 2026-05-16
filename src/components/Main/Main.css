@@ -20,3 +20,108 @@
   font-weight: bold;
   margin-bottom: 1.5rem;
 }
+
+@media (max-width: 800px) {
+  .home {
+    margin: 0.8rem;
+  }
+
+  .home__title {
+    font-size: 2.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .home__balance-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .home__balance {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .home {
+    margin: 0.6rem;
+  }
+
+  .home__title {
+    font-size: 1.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .home__balance-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .home__balance {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    margin: 0.5rem;
+  }
+
+  .home__title {
+    font-size: 1.6rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .home__balance-title {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .home__balance {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .home {
+    margin: 0.4rem;
+  }
+
+  .home__title {
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .home__balance-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .home__balance {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .home {
+    margin: 0.3rem;
+  }
+
+  .home__title {
+    font-size: 1.2rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .home__balance-title {
+    font-size: 0.85rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .home__balance {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,253 @@
+.register{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    padding: 20px 0;
+}
+
+.register__title{
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.register__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.register__input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.register__button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    width: 320px;
+}
+
+.register__button:hover{
+    background-color: #0056b3;
+}
+
+.register__login-text{
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.register__message {
+    margin-top: 10px;
+    width: 320px;
+    text-align: center;
+    padding: 10px 12px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+.register__message_success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.register__message_error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@media (max-width: 800px) {
+    .register {
+        padding: 15px 0;
+    }
+
+    .register__title {
+        font-size: 1.7rem;
+        margin-bottom: 15px;
+    }
+
+    .register__form {
+        gap: 8px;
+    }
+
+    .register__input {
+        width: 280px;
+        padding: 9px;
+        font-size: 1rem;
+    }
+
+    .register__button {
+        width: 300px;
+        padding: 9px 18px;
+        font-size: 0.95rem;
+    }
+
+    .register__message {
+        width: 300px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .register {
+        padding: 12px 10px;
+    }
+
+    .register__title {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+
+    .register__form {
+        gap: 7px;
+    }
+
+    .register__input {
+        width: 100%;
+        max-width: 260px;
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    .register__button {
+        width: 100%;
+        max-width: 280px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .register__message {
+        width: 100%;
+        max-width: 280px;
+        font-size: 0.85rem;
+    }
+
+    .register__login-text {
+        font-size: 0.9rem;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register {
+        padding: 10px 8px;
+    }
+
+    .register__title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .register__form {
+        gap: 6px;
+    }
+
+    .register__input {
+        width: 100%;
+        max-width: 100%;
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    .register__button {
+        width: 100%;
+        max-width: 100%;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .register__message {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
+
+    .register__login-text {
+        font-size: 0.85rem;
+        margin-top: 6px;
+    }
+}
+
+@media (max-width: 380px) {
+    .register {
+        padding: 8px 6px;
+    }
+
+    .register__title {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+
+    .register__form {
+        gap: 5px;
+    }
+
+    .register__input {
+        padding: 7px;
+        font-size: 14px;
+    }
+
+    .register__button {
+        padding: 7px 10px;
+        font-size: 0.8rem;
+    }
+
+    .register__message {
+        font-size: 0.75rem;
+        padding: 6px 8px;
+    }
+
+    .register__login-text {
+        font-size: 0.8rem;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 320px) {
+    .register {
+        padding: 6px 5px;
+    }
+
+    .register__title {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+
+    .register__form {
+        gap: 4px;
+    }
+
+    .register__input {
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    .register__button {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+    }
+
+    .register__message {
+        font-size: 0.7rem;
+        padding: 5px 6px;
+    }
+
+    .register__login-text {
+        font-size: 0.75rem;
+        margin-top: 4px;
+    }
+}
