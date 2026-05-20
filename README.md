@@ -2,4 +2,6 @@
 
 **FinTrack is a web application for tracking personal financial data.**
 
-More info will be added as the project is being developed.
+Link: https://fintrack-front-one.vercel.app
+
+The project has been deployed, backend and database should be working, just open the link above to test it.
