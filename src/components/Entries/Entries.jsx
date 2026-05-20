@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Entries.css";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 
-export default function Entries({ entries, setEntries, onAddEntry, onDeleteEntry }) {
+export default function Entries({ entries, onAddEntry, onDeleteEntry }) {
   const [formData, setFormData] = useState({
     value: "",
     date: "",

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect } from "react";
 import Main from "../Main/Main";
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
@@ -11,6 +11,8 @@ import Footer from "../Footer/Footer";
 import PageLayout from "../PageLayout/PageLayout";
 import api from "../../utils/api";
 import * as auth from "../../utils/auth";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { removeToken } from "../../utils/token";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
@@ -26,14 +28,6 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [token, setTokenState] = useState(null);
   const navigate = useNavigate();
-  const CurrentUserContext = createContext();
-
-  const ProtectedRoute = ({ children }) => {
-    if (isLoading) {
-      return <div className="page">Carregando...</div>;
-    }
-    return isLoggedIn ? children : <Navigate to="/login" replace />;
-  };
 
   const handleRegistration = async ({ name, email, password }) => {
     auth
