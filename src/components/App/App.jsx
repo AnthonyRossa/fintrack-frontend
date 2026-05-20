@@ -247,7 +247,6 @@ export default function App() {
                   <PageLayout onLogout={handleLogout}>
                     <Expenses
                       expenses={expenses}
-                      setExpenses={setExpenses}
                       onAddExpense={handleAddExpense}
                       onDeleteExpense={handleDeleteExpense}
                     />
@@ -264,7 +263,6 @@ export default function App() {
                   <PageLayout onLogout={handleLogout}>
                     <Entries
                       entries={entries}
-                      setEntries={setEntries}
                       onAddEntry={handleAddEntry}
                       onDeleteEntry={handleDeleteEntry}
                     />

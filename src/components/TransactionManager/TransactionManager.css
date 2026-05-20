@@ -1,0 +1,320 @@
+.transaction-manager {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.transaction-manager__title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.transaction-manager__description {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+  text-align: center;
+}
+
+.transaction-manager__form,
+.transaction-manager__list {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.transaction-manager__form {
+  background-color: #f9f9f9;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.transaction-manager__form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-manager__form-label {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.transaction-manager__form-input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.transaction-manager__form-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.12);
+}
+
+.transaction-manager__form-note {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.transaction-manager__form-button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+.transaction-manager__form-button:hover {
+  background-color: #0056b3;
+}
+
+.transaction-manager--entries .transaction-manager__form-button {
+  background-color: #28a745;
+}
+
+.transaction-manager--entries .transaction-manager__form-button:hover {
+  background-color: #218838;
+}
+
+.transaction-manager--entries .transaction-manager__item {
+  border-left: 8px solid #28a745;
+}
+
+.transaction-manager--entries .transaction-manager__item-value {
+  color: #c7f9cc;
+}
+
+.transaction-manager--expenses .transaction-manager__form-button {
+  background-color: #007bff;
+}
+
+.transaction-manager--expenses .transaction-manager__form-button:hover {
+  background-color: #0056b3;
+}
+
+.transaction-manager--expenses .transaction-manager__item {
+  border-left: 8px solid #007bff;
+}
+
+.transaction-manager--expenses .transaction-manager__item-value {
+  color: #ffb3b3;
+}
+
+.transaction-manager__list-title {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.transaction-manager__list-desc {
+  font-size: 1.05rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.transaction-manager__list-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-manager__item {
+  background-color: #1d3557;
+  padding: 18px;
+  border-radius: 18px;
+  margin-bottom: 1rem;
+}
+
+.transaction-manager__item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.transaction-manager__item-value,
+.transaction-manager__item-date,
+.transaction-manager__item-category {
+  flex: 1 1 150px;
+  min-width: 120px;
+}
+
+.transaction-manager__item-value {
+  font-weight: 700;
+  color: #ffb3b3;
+}
+
+.transaction-manager__item-date,
+.transaction-manager__item-category,
+.transaction-manager__item-description {
+  color: #ccc;
+}
+
+.transaction-manager__item-description {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.transaction-manager__item-delete {
+  background-color: #4a4a4a;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+.transaction-manager__item-delete:hover {
+  background-color: #323232;
+}
+
+@media (max-width: 800px) {
+  .transaction-manager {
+    padding: 0 0.75rem 1.5rem;
+  }
+
+  .transaction-manager__form {
+    padding: 20px;
+  }
+
+  .transaction-manager__item {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .transaction-manager {
+    padding: 0 0.6rem 1.25rem;
+  }
+
+  .transaction-manager__form {
+    padding: 18px;
+  }
+
+  .transaction-manager__form-button {
+    font-size: 0.98rem;
+    padding: 13px;
+  }
+
+  .transaction-manager__item {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .transaction-manager__title {
+    font-size: 1.6rem;
+  }
+
+  .transaction-manager__description {
+    font-size: 1rem;
+  }
+
+  .transaction-manager__form {
+    padding: 16px;
+  }
+
+  .transaction-manager__form-label {
+    font-size: 0.95rem;
+  }
+
+  .transaction-manager__form-input {
+    padding: 11px 12px;
+    font-size: 0.97rem;
+  }
+
+  .transaction-manager__item-info {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .transaction-manager__item-value,
+  .transaction-manager__item-date,
+  .transaction-manager__item-category {
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+
+  .transaction-manager__item-delete {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .transaction-manager {
+    padding: 0 0.5rem 1rem;
+  }
+
+  .transaction-manager__form {
+    padding: 14px;
+  }
+
+  .transaction-manager__form-button {
+    padding: 11px;
+  }
+
+  .transaction-manager__item {
+    padding: 12px;
+  }
+
+  .transaction-manager__item-value,
+  .transaction-manager__item-date,
+  .transaction-manager__item-category,
+  .transaction-manager__item-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .transaction-manager {
+    padding: 0 0.4rem 0.8rem;
+  }
+
+  .transaction-manager__title {
+    font-size: 1.4rem;
+  }
+
+  .transaction-manager__description {
+    font-size: 0.95rem;
+  }
+
+  .transaction-manager__form {
+    padding: 12px;
+  }
+
+  .transaction-manager__form-input {
+    padding: 10px;
+  }
+
+  .transaction-manager__form-button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .transaction-manager__item {
+    padding: 10px;
+  }
+}
