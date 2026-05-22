@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./Register.css";
 import Header from "../Header/Header";
 
-export default function Register({ handleRegistration, infoMessage, showInfoTooltip, infoSuccess }) {
+export default function Register({ handleRegistration, infoMessage, showInfoTooltip, infoSuccess, isLoading }) {
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -59,10 +59,11 @@ export default function Register({ handleRegistration, infoMessage, showInfoTool
           <button className="register__button" type="submit">
             Inscrever-se
           </button>
-          {showInfoTooltip && (
-            <p className={`register__message ${infoSuccess ? "register__message_success" : "register__message_error"}`}>
-              {infoMessage}
-            </p>
+          {(showInfoTooltip || isLoading) && (
+            <span
+              className={`register__message ${isLoading ? "register__message_loading" : infoSuccess ? "register__message_success" : "register__message_error"}`}>
+              {isLoading ? "Carregando..." : infoMessage}
+            </span>
           )}
           <Link className="register__login-text" to="/login">
             Já possui uma conta? Faça login aqui!

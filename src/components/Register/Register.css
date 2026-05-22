@@ -69,6 +69,12 @@
     border: 1px solid #f5c6cb;
 }
 
+.register__message_loading {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
 @media (max-width: 800px) {
     .register {
         padding: 15px 0;

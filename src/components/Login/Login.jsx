@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 import Header from "../Header/Header";
 
-export default function Login({ handleLogin, infoMessage, showInfoTooltip, infoSuccess }) {
+export default function Login({ handleLogin, infoMessage, showInfoTooltip, infoSuccess, isLoading }) {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -49,10 +49,11 @@ export default function Login({ handleLogin, infoMessage, showInfoTooltip, infoS
           <button className="login__button" type="submit">
             Entrar
           </button>
-          {showInfoTooltip && (
-            <p className={`login__message ${infoSuccess ? "login__message_success" : "login__message_error"}`}>
-              {infoMessage}
-            </p>
+          {(showInfoTooltip || isLoading) && (
+            <span
+              className={`login__message ${isLoading ? "login__message_loading" : infoSuccess ? "login__message_success" : "login__message_error"}`}>
+              {isLoading ? "Carregando..." : infoMessage}
+            </span>
           )}
           <Link className="login__register-text" to="/register">
             Ainda não tem uma conta? Cadastre-se aqui!

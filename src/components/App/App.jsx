@@ -24,12 +24,16 @@ export default function App() {
   const [showInfoTooltip, setShowInfoTooltip] = useState(false);
   const [tooltipMessage, setTooltipMessage] = useState("");
   const [tooltipSuccess, setTooltipSuccess] = useState(false);
+  const [isAuthLoading, setIsAuthLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [token, setTokenState] = useState(null);
   const navigate = useNavigate();
 
   const handleRegistration = async ({ name, email, password }) => {
+    setShowInfoTooltip(false);
+    setIsAuthLoading(true);
+
     auth
       .register(name, email, password)
       .then(() => {
@@ -47,10 +51,16 @@ export default function App() {
         setTooltipMessage("Ops, algo deu errado! Por favor, tente novamente.");
         setShowInfoTooltip(true);
         console.error(error);
+      })
+      .finally(() => {
+        setIsAuthLoading(false);
       });
   };
 
   const handleLogin = async ({ email, password }) => {
+    setShowInfoTooltip(false);
+    setIsAuthLoading(true);
+
     auth
       .authorize(email, password)
       .then((data) => {
@@ -95,6 +105,9 @@ export default function App() {
         removeToken();
         setTokenState(null);
         console.error(error);
+      })
+      .finally(() => {
+        setIsAuthLoading(false);
       });
   };
 
@@ -199,6 +212,7 @@ export default function App() {
                     infoMessage={tooltipMessage}
                     showInfoTooltip={showInfoTooltip}
                     infoSuccess={tooltipSuccess}
+                    isLoading={isAuthLoading}
                   />
                   <Footer />
                 </div>
@@ -217,6 +231,7 @@ export default function App() {
                     infoMessage={tooltipMessage}
                     showInfoTooltip={showInfoTooltip}
                     infoSuccess={tooltipSuccess}
+                    isLoading={isAuthLoading}
                   />
                   <Footer />
                 </div>

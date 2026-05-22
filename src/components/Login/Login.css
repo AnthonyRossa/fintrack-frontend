@@ -69,6 +69,12 @@
     border: 1px solid #f5c6cb;
 }
 
+.login__message_loading {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
 @media (max-width: 800px) {
     .login {
         padding: 15px 0;

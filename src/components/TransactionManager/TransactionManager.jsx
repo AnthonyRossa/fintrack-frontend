@@ -29,6 +29,13 @@ export default function TransactionManager({
   });
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
+  const [isFormVisible, setIsFormVisible] = useState(false);
+
+  const getActionMessage = () => {
+    if (mode === "entries") return "Adicionar entrada";
+    if (mode === "expenses") return "Adicionar despesa";
+    return "Adicionar";
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -101,8 +108,26 @@ export default function TransactionManager({
     <div className={`transaction-manager transaction-manager--${mode}`}>
       <h2 className="transaction-manager__title">{title}</h2>
       <p className="transaction-manager__description">{subtitle}</p>
+      <div className="transaction-manager__actions">
+        {!isFormVisible ? (
+          <button
+            type="button"
+            className="transaction-manager__action-button transaction-manager__action-button--add"
+            onClick={() => setIsFormVisible(true)}>
+            {getActionMessage()}
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="transaction-manager__action-button transaction-manager__action-button--close"
+            onClick={() => setIsFormVisible(false)}>
+            Ocultar formulário
+          </button>
+        )}
+      </div>
 
-      <form onSubmit={handleSubmit} className="transaction-manager__form">
+      <div className={`transaction-manager__form-wrapper ${isFormVisible ? "transaction-manager__form-wrapper--visible" : ""}`}>
+        <form onSubmit={handleSubmit} className="transaction-manager__form">
         <div className="transaction-manager__form-group">
           <label className="transaction-manager__form-label" htmlFor="value">
             {amountLabel}
@@ -179,8 +204,8 @@ export default function TransactionManager({
         <button type="submit" className="transaction-manager__form-button">
           {submitButtonText}
         </button>
-      </form>
-
+        </form>
+      </div>
       <div className="transaction-manager__list">
         <h3 className="transaction-manager__list-title">{listTitle}</h3>
         {items.length === 0 ? (
