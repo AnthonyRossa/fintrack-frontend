@@ -38,7 +38,9 @@ export default function App() {
       .register(name, email, password)
       .then(() => {
         setTooltipSuccess(true);
-        setTooltipMessage("Vitória! Você agora está registrado. Você será redirecionado para a página de login.");
+        setTooltipMessage(
+          "Vitória! Você agora está registrado. Você será redirecionado para a página de login.",
+        );
         setShowInfoTooltip(true);
 
         setTimeout(() => {
@@ -75,7 +77,9 @@ export default function App() {
         if (userData) {
           setCurrentUser(userData);
           setTooltipSuccess(true);
-          setTooltipMessage("Login realizado com sucesso. Você será redirecionado em breve.");
+          setTooltipMessage(
+            "Login realizado com sucesso. Você será redirecionado em breve.",
+          );
           setShowInfoTooltip(true);
           return api.getUserInfo();
         }
@@ -134,6 +138,7 @@ export default function App() {
         .catch((error) => {
           console.error(error);
           removeToken();
+          setIsLoggedIn(false);
         })
         .finally(() => {
           setIsLoading(false);
@@ -173,7 +178,9 @@ export default function App() {
   const handleDeleteExpense = async (expenseId) => {
     try {
       await api.deleteExpense(expenseId);
-      setExpenses((prev) => prev.filter((expense) => expense._id !== expenseId));
+      setExpenses((prev) =>
+        prev.filter((expense) => expense._id !== expenseId),
+      );
     } catch (error) {
       console.error("Error deleting expense:", error);
     }
@@ -197,12 +204,35 @@ export default function App() {
           <Route
             path="/"
             element={
-              isLoggedIn ? <Navigate to="/main" /> : <Navigate to="/login" />
+              isLoading ? (
+                <div className="page-loading-full">
+                  <Header />
+                  <div className="loading-spinner-container">
+                    <p>Carregando...</p>
+                    <div className="spinner"></div>
+                  </div>
+                  <Footer />
+                </div>
+              ) : isLoggedIn ? (
+                <Navigate to="/main" />
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
           <Route
             path="/login"
             element={
+              isLoading ? (
+                <div className="page-loading-full">
+                  <Header />
+                  <div className="loading-spinner-container">
+                    <p>Carregando...</p>
+                    <div className="spinner"></div>
+                  </div>
+                  <Footer />
+                </div>
+              ) :
               isLoggedIn ? (
                 <Navigate to="/main" replace />
               ) : (
@@ -222,6 +252,16 @@ export default function App() {
           <Route
             path="/register"
             element={
+              isLoading ? (
+                <div className="page-loading-full">
+                  <Header />
+                  <div className="loading-spinner-container">
+                    <p>Carregando...</p>
+                    <div className="spinner"></div>
+                  </div>
+                  <Footer />
+                </div>
+              ) :
               isLoggedIn ? (
                 <Navigate to="/main" replace />
               ) : (
@@ -312,7 +352,13 @@ export default function App() {
           />
           <Route
             path="*"
-            element={isLoggedIn ? <Navigate to="/main" replace /> : <Navigate to="/login" replace />}
+            element={
+              isLoggedIn ? (
+                <Navigate to="/main" replace />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
           />
         </Routes>
       </CurrentUserContext.Provider>
