@@ -16,6 +16,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { removeToken } from "../../utils/token";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import "./App.css";
 
 export default function App() {
   const [entries, setEntries] = useState([]);
