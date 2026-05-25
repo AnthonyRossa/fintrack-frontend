@@ -51,7 +51,7 @@ export default function Login({ handleLogin, infoMessage, showInfoTooltip, infoS
           </button>
           {(showInfoTooltip || isLoading) && (
             <span
-              className={`login__message ${isLoading ? "login__message_loading login__animation" : infoSuccess ? "login__message_success" : "login__message_error"}`}>
+              className={`login__message ${isLoading ? "login__message_loading loading-animation" : infoSuccess ? "login__message_success" : "login__message_error"}`}>
               {isLoading ? "Carregando..." : infoMessage}
             </span>
           )}
