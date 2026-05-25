@@ -75,6 +75,20 @@
     border: 1px solid #ffeeba;
 }
 
+@keyframes flashYellow {
+  0%, 100% {
+    background-color: #fff3cd;
+  }
+  50% {
+    background-color: rgba(255, 243, 205, 0.5);
+  }
+}
+
+.register.loading-animation {
+  animation: flashYellow 1.5s ease-in-out infinite;
+  transition: background-color 0.3s;
+}
+
 @media (max-width: 800px) {
     .register {
         padding: 15px 0;

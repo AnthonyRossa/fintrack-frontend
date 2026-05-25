@@ -25,7 +25,7 @@ export default function Login({ handleLogin, infoMessage, showInfoTooltip, infoS
   return (
     <>
     <Header />
-      <div className="login">
+      <div className="login ${isLoading ? 'loading-animation' : ''}">
         <h2 className="login__title">Entrar</h2>
         <form className="login__form" onSubmit={handleSubmit}>
           <input
@@ -46,8 +46,8 @@ export default function Login({ handleLogin, infoMessage, showInfoTooltip, infoS
             value={data.password}
             onChange={handleChange}
           />
-          <button className="login__button" type="submit">
-            Entrar
+          <button className="login__button" type="submit" disabled={isLoading}>
+            {isLoading ? "Entrando..." : "Entrar"}
           </button>
           {(showInfoTooltip || isLoading) && (
             <span

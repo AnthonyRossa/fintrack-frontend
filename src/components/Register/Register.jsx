@@ -26,7 +26,7 @@ export default function Register({ handleRegistration, infoMessage, showInfoTool
   return (
     <>
       <Header />
-      <div className="register">
+      <div className="register ${isLoading ? 'loading-animation' : ''}">
         <h2 className="register__title">Inscrever-se</h2>
         <form className="register__form" onSubmit={handleSubmit}>
           <input
@@ -56,8 +56,8 @@ export default function Register({ handleRegistration, infoMessage, showInfoTool
             value={data.password}
             onChange={handleChange}
           />
-          <button className="register__button" type="submit">
-            Inscrever-se
+          <button className="register__button" type="submit" disabled={isLoading}>
+            {isLoading ? "Cadastrando..." : "Inscrever-se"}
           </button>
           {(showInfoTooltip || isLoading) && (
             <span
