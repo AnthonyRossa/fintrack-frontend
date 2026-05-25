@@ -19,7 +19,7 @@ const MONTHS = [
 const groupByCategory = (items) =>
   items.reduce((acc, item) => {
     const key = item.category || "Outros";
-    const value = Number(item.value) || 0;
+    const value = Number(item.amount) || 0;
     acc[key] = (acc[key] || 0) + value;
     return acc;
   }, {});

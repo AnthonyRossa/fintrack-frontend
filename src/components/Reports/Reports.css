@@ -1,7 +1,9 @@
 .reports {
-  max-width: 960px;
+  width: 100%;
+  max-width: 780px;
   margin: 0 auto;
-  padding: 28px;
+  padding: 28px 20px;
+  box-sizing: border-box;
 }
 
 .reports__header {
@@ -21,6 +23,7 @@
 .reports__header-description {
   margin: 10px 0 0;
   color: #555;
+  font-size: 1rem;
 }
 
 .reports__filters {
@@ -35,10 +38,11 @@
   gap: 8px;
   font-weight: 600;
   color: #333;
+  min-width: 140px;
 }
 
 .reports__filters-select {
-  min-width: 140px;
+  width: 100%;
   padding: 10px 12px;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -119,6 +123,127 @@
   color: #c7f9cc;
 }
 
-.reports__result--negative{
+.reports__result--negative {
   color: #ffb3b3;
+}
+
+@media (max-width: 800px) {
+  .reports {
+    padding: 24px 16px;
+  }
+
+  .reports__header {
+    gap: 16px;
+  }
+
+  .reports__footer {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .reports {
+    padding: 22px 14px;
+  }
+
+  .reports__header {
+    align-items: stretch;
+  }
+
+  .reports__header-title {
+    font-size: 1.8rem;
+  }
+
+  .reports__box {
+    padding: 18px;
+  }
+
+  .reports__footer {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reports {
+    padding: 18px 12px;
+  }
+
+  .reports__header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .reports__filters {
+    width: 100%;
+  }
+
+  .reports__filters-label {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .reports__filters-select {
+    width: 100%;
+  }
+
+  .reports__footer {
+    padding: 18px;
+  }
+
+  .reports__category-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reports__category-item p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .reports {
+    padding: 16px 10px;
+  }
+
+  .reports__header-title {
+    font-size: 1.65rem;
+  }
+
+  .reports__box {
+    padding: 16px;
+  }
+
+  .reports__footer {
+    padding: 16px;
+  }
+
+  .reports__currency {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .reports {
+    padding: 14px 8px;
+  }
+
+  .reports__header-title {
+    font-size: 1.5rem;
+  }
+
+  .reports__header-description {
+    font-size: 0.95rem;
+  }
+
+  .reports__filters-select {
+    padding: 8px 10px;
+  }
+
+  .reports__category-item {
+    padding: 10px 12px;
+  }
+
+  .reports__footer {
+    padding: 14px;
+  }
 }
