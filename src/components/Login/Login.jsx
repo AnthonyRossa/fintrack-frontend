@@ -25,7 +25,7 @@ export default function Login({ handleLogin, infoMessage, showInfoTooltip, infoS
   return (
     <>
     <Header />
-      <div className={`login ${isLoading ? 'loading-animation' : ''}`}>
+      <div className="login">
         <h2 className="login__title">Entrar</h2>
         <form className="login__form" onSubmit={handleSubmit}>
           <input
@@ -51,7 +51,7 @@ export default function Login({ handleLogin, infoMessage, showInfoTooltip, infoS
           </button>
           {(showInfoTooltip || isLoading) && (
             <span
-              className={`login__message ${isLoading ? "login__message_loading" : infoSuccess ? "login__message_success" : "login__message_error"}`}>
+              className={`login__message ${isLoading ? "login__message_loading login__animation" : infoSuccess ? "login__message_success" : "login__message_error"}`}>
               {isLoading ? "Carregando..." : infoMessage}
             </span>
           )}

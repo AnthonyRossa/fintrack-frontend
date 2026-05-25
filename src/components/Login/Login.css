@@ -87,7 +87,7 @@
   background-color: #cccccc;
 }
 
-@keyframes flashYellow {
+@keyframes flashMessageYellow {
   0%, 100% {
     background-color: #fff3cd;
   }
@@ -96,8 +96,8 @@
   }
 }
 
-.login.loading-animation {
-  animation: flashYellow 1.5s ease-in-out infinite;
+.login__message.loading-animation {
+  animation: flashMessageYellow 1.5s ease-in-out infinite;
 }
 
 @media (max-width: 800px) {

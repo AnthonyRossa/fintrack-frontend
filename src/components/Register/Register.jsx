@@ -26,7 +26,7 @@ export default function Register({ handleRegistration, infoMessage, showInfoTool
   return (
     <>
       <Header />
-      <div className={`register ${isLoading ? 'loading-animation' : ''}`}>
+      <div className="register">
         <h2 className="register__title">Inscrever-se</h2>
         <form className="register__form" onSubmit={handleSubmit}>
           <input
@@ -61,7 +61,7 @@ export default function Register({ handleRegistration, infoMessage, showInfoTool
           </button>
           {(showInfoTooltip || isLoading) && (
             <span
-              className={`register__message ${isLoading ? "register__message_loading" : infoSuccess ? "register__message_success" : "register__message_error"}`}>
+              className={`register__message ${isLoading ? "register__message_loading loading-animation" : infoSuccess ? "register__message_success" : "register__message_error"}`}>
               {isLoading ? "Carregando..." : infoMessage}
             </span>
           )}
