@@ -88,20 +88,27 @@
   background-color: #cccccc;
 }
 
-@keyframes flashMessageYellow {
-  0%, 100% {
+@keyframes flashBoxYellow {
+  0% {
     background-color: #fff3cd;
-    opacity: 1;
   }
   50% {
-    background-color: #ffeeba;
-    opacity: 0.8;
+    background-color: #ffeb3b;
+  }
+  100% {
+    background-color: #fff3cd;
   }
 }
 
-.register__message.loading-animation {
-  animation: flashMessageYellow 0.8s ease-in-out infinite;
-  display: inline-block;
+.register__message.loading-animation{
+  animation: flashBoxYellow 0.8s infinite alternate;
+  display: inline-block; 
+  width: 320px;
+  padding: 10px 12px;
+  border-radius: 5px;
+  text-align: center;
+  color: #856404;
+  border: 1px solid #ffeeba;
 }
 
 @media (max-width: 800px) {
