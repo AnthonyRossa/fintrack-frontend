@@ -25,7 +25,7 @@ export default function Login({ handleLogin, infoMessage, showInfoTooltip, infoS
   return (
     <>
     <Header />
-      <div className="login ${isLoading ? 'loading-animation' : ''}">
+      <div className={`login ${isLoading ? 'loading-animation' : ''}`}>
         <h2 className="login__title">Entrar</h2>
         <form className="login__form" onSubmit={handleSubmit}>
           <input

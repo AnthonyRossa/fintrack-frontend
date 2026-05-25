@@ -26,7 +26,7 @@ export default function Register({ handleRegistration, infoMessage, showInfoTool
   return (
     <>
       <Header />
-      <div className="register ${isLoading ? 'loading-animation' : ''}">
+      <div className={`register ${isLoading ? 'loading-animation' : ''}`}>
         <h2 className="register__title">Inscrever-se</h2>
         <form className="register__form" onSubmit={handleSubmit}>
           <input
