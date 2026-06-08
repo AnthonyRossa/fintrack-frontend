@@ -1,6 +1,6 @@
 # FinTrack
 
-A privacy-focused, React-based personal finance tracker designed to help users manage income, expenses, and financial reports. This frontend application provides a responsive, intuitive interface for tracking financial data with real-time updates and secure authentication.
+A React-based personal finance tracker designed to help users manage income, expenses, and financial reports. This frontend application provides a responsive, intuitive interface for tracking financial data with real-time updates and secure authentication.
 
 ## 🚀 Features
 
